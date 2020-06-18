@@ -1,0 +1,60 @@
+body {
+    margin: 0;
+    font-family: "Opensan";
+  }
+  @font-face {
+    font-family: Opensan;
+    src: url(../font/OpenSans-Bold.ttf);
+  }
+  .header {
+    display: flex;
+    position: fixed;
+    width: 100%;
+   
+  }
+  
+  .home-header {
+    height: 200px;
+    width: 100%;
+  }
+ 
+  .header-img {
+    margin: 15px;
+    margin-left: 100px;
+    height: 80px;
+    width: 1050px;
+    background-image: url(../img/logo.png);
+    background-repeat: no-repeat;
+  }
+  
+  .grid-container {
+    display: grid;
+    grid-template-columns:   auto auto auto auto;
+    grid-gap: 0px;
+    background-color: rgb(86, 226, 128);
+    padding: 0px;
+    opacity: 0.9;
+  }
+  
+  .btn {
+    margin-top: 25px;
+    text-align: center;
+    border: none;
+    font-size: 20px;
+    height: 60px;
+    width: 200px;
+  }
+  
+  .btn:hover {
+    background-color: rgb(44, 165, 60);
+    cursor: pointer;
+  }
+  
+  .home {
+    
+    background-image: url(https://khankids.zendesk.com/hc/article_attachments/360034859052/KhanKids_BTSBanner_Twitter.png);
+    background-repeat: no-repeat;
+  }
+  
+ 
+  
