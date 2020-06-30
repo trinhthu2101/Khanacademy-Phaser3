@@ -13,7 +13,7 @@ I.	Giới thiệu
         •	Nhạc nền khi vào trò chơi.
     4.Tài liệu tham khảo
           Tham khảo trên : https://www.khanacademy.org.
-          Tài liệu : Tai_lieu_yeu_cau.
+          Tài liệu : https://docs.google.com/document/d/1EUbniAZvp-WWM_sgqfo6u5t05URgNW0GImoFYEAwOCA/edit#heading=h.lbp14wbvsx66
 II.	Nền tảng sử dụng
 
     5.Công cụ sử dụng: 
