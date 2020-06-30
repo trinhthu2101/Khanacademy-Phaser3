@@ -225,6 +225,7 @@
 	"meta": {
 		"app": "https://www.codeandweb.com/texturepacker",
 		"version": "3.0",
+		
 		"smartupdate": "$TexturePacker:SmartUpdate:c4de2bf4a69c4da5084dd3325a2c0181:bbc74e8f86f52b4ea40b576b24151bdb:1b6cf09d0fb02346b7e4f03e97557c9c$"
 	}
 }
