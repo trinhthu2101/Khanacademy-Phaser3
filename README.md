@@ -1,5 +1,7 @@
 # Khanacademy-Phaser3
+
 I.	Giới thiệu 
+
      1.	Mục đích
            Giúp trẻ em có thể lựa chọn được những hành động sinh hoạt hằng ngày :hành động nào nên làm ,hành động nào không nên làm.
      2.	Đối tượng người dùng
@@ -13,6 +15,7 @@ I.	Giới thiệu
           Tham khảo trên : https://www.khanacademy.org.
           Tài liệu : Tai_lieu_yeu_cau.
 II.	Nền tảng sử dụng
+
     5.	Công cụ sử dụng: 
            FrameWorks :Phaser 3.
     6.	Ngôn ngữ lập trình :HTML,CSS,JS.
