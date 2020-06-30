@@ -17,7 +17,8 @@ I.	Giới thiệu
 II.	Nền tảng sử dụng
 
     5.Công cụ sử dụng: 
-           FrameWorks :Phaser 3.
+           FrameWorks :Phaser 3,Bootstrap 4
+           
     6.Ngôn ngữ lập trình :HTML,CSS,JS.
  
-
+Link : https://thu21.github.io/Khanacademy-Phaser3/index.html
