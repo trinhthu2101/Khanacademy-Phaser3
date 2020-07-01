@@ -9,10 +9,13 @@ preload ()
   this.load.atlas('ani2','public/ani2.png','public/ani2.json')
   this.load.plugin('rexcirclemaskimageplugin', 'https://raw.githubusercontent.com/rexrainbow/phaser3-rex-notes/master/dist/rexcirclemaskimageplugin.min.js', true);
   this.load.audio('thu7', "public/assets/Audio/audio11.mp3")
+  this.load.audio('music', "public/assets/Audio/bensound-cute.mp3")
   this.load.path = 'public/assets/Game/';
   this.load.image('QA1', "QA1.png");
   this.load.image('QA2', "QA2.png");
   this.load.image('loa', "loa.png");
+  this.load.image('loa3', "loa3.png");
+  this.load.image('loa33', "loa33.png");
   this.load.image('4', "4t.jpeg");
   this.load.image('3', "3.jpg");
 
@@ -23,16 +26,27 @@ preload ()
 
 create ()
   {
+
   this.input.setDefaultCursor('url(public/assets/Game/blue.cur), pointer');
 
   this.add.image(230,350,'QA1');
   this.QA2=this.add.image(230,97,'QA2');
-  this.loa=this.add.image(40, 50, 'loa');
 
+
+  this.ImgMusic=this.add.image(1000,10, 'loa33').setOrigin(0).setDisplaySize(150, 150);
+  this.music = this.sound.add('music');
+  this.ImgMusic.setInteractive({ cursor: 'url(public/assets/Game/star.png), pointer' }).on('pointerdown', () => {
+  this.ImgMusic.destroy();
+  this.add.image(1000,10,'loa3').setOrigin(0).setDisplaySize(150, 150);
+  this.music.stop();
+      });
+  this.music.play();
+
+  this.loa=this.add.image(250, 130, 'loa').setOrigin(0).setDisplaySize(50, 50);
   this.audio = this.sound.add('thu7');
   this.loa.setInteractive({ cursor: 'url(public/assets/Game/star.png), pointer' }).on('pointerdown', () => {
   this.audio.play()
-    })
+    });
   this.img1= this.add.rexCircleMaskImage(500, 270, '1', {
                        maskType: 'roundRectangle',
                        radius: 100
