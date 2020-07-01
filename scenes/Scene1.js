@@ -8,7 +8,7 @@ preload ()
   {
   this.load.atlas('ani2','public/ani2.png','public/ani2.json')
   this.load.plugin('rexcirclemaskimageplugin', 'https://raw.githubusercontent.com/rexrainbow/phaser3-rex-notes/master/dist/rexcirclemaskimageplugin.min.js', true);
-  this.load.audio('thu7', "public/assets/Audio/audio1.mp3")
+  this.load.audio('thu7', "public/assets/Audio/audio11.mp3")
   this.load.path = 'public/assets/Game/';
   this.load.image('QA1', "QA1.png");
   this.load.image('QA2', "QA2.png");
