@@ -1,7 +1,26 @@
+
+let posX;
+let posY;
+let textX;
+var posX_A=490;
+var posY_A=370;
+var posX_B=790;
+var posY_B=370;
+var posX_C=350;
+var posY_C=600;
+var posX_D=650;
+var posY_D=600;
+var posX_E=950;
+var posY_E=600;
+var countNumberRight=0;
+
+var countNumberWrong=0;
  class Scene1 extends Phaser.Scene{
 
 constructor(){
     super({key:'Scene1'});
+
+
 }
 
 preload ()
@@ -32,64 +51,81 @@ create ()
   this.add.image(230,350,'QA1');
   this.QA2=this.add.image(230,97,'QA2');
 
-
+  //Music
   this.ImgMusic=this.add.image(1000,10, 'loa33').setOrigin(0).setDisplaySize(150, 150);
   this.music = this.sound.add('music');
-  this.ImgMusic.setInteractive({ cursor: 'url(public/assets/Game/star.png), pointer' }).on('pointerdown', () => {
-  this.ImgMusic.destroy();
-  this.add.image(1000,10,'loa3').setOrigin(0).setDisplaySize(150, 150);
-  this.music.stop();
-      });
-  this.music.play();
+  this.ImgMusic.setInteractive({ cursor: 'url(public/assets/Game/star.png), pointer' }).on('pointerdown',this.chooseMusic,this);
+  this.music.play(MusicCofig);
 
-  this.loa=this.add.image(250, 130, 'loa').setOrigin(0).setDisplaySize(50, 50);
+
+  //Audio
+  this.loa=this.add.image(255, 135,'loa').setOrigin(0).setDisplaySize(35, 35);
   this.audio = this.sound.add('thu7');
   this.loa.setInteractive({ cursor: 'url(public/assets/Game/star.png), pointer' }).on('pointerdown', () => {
-  this.audio.play()
+  this.audio.play();
     });
-  this.img1= this.add.rexCircleMaskImage(500, 270, '1', {
+  this.img1= this.add.rexCircleMaskImage(posX_A+10, posY_A-100, '1', {
                        maskType: 'roundRectangle',
                        radius: 100
                    });
 
- this.A=this.add.text(490,370,"A", { color: '#000000', font: '32px Arial' }) ;
- this.A.setInteractive({curson:'url(public/assets/Game/curson1.png),pointer'}).on('pointerdown', this.clickButtonA, this);
+ this.A=this.add.text(posX_A,posY_A,"A", { color: '#000000', font: '32px Arial' }) ;
+ this.A.setInteractive({curson:'url(public/assets/Game/curson1.png),pointer'}).on('clicked', this.clickButtonA, this);
   this.img1.setInteractive({ cursor: 'url(public/assets/Game/star.png), pointer' }).on('pointerdown', this.clickButtonA, this);
 
- this.img5= this.add.rexCircleMaskImage(800, 270, '1', {
+ this.img5= this.add.rexCircleMaskImage(posX_B+10, posY_B-100, '3', {
                                           maskType: 'roundRectangle',
                                           radius: 100
                                       });
- this.B=this.add.text(790,370,"B", { color: '#000000', font: '32px Arial' }) ;
+ this.B=this.add.text(posX_B,posY_B,"B", { color: '#000000', font: '32px Arial' }) ;
  this.B.setInteractive().on('pointerdown', this.clickButtonB, this);
- this.img5.setInteractive({ cursor: 'url(public/assets/Game/star.png), pointer' }).on('pointerdown', this.clickButtonB, this);
+ this.img5.setInteractive({ cursor: 'url(public/assets/Game/star.png), pointer' }).on('clicked', this.clickButtonB, this);
 
-  this.img2=this.add.rexCircleMaskImage(360, 500, '2', {
+  this.img2=this.add.rexCircleMaskImage(posX_C+10, posY_C-100, '2', {
                                   maskType: 'roundRectangle',
                                   radius: 100
                               });
-  this.C=this.add.text(350,600,"C", { color: '#000000', font: '32px Arial' }) ;
-  this.C.setInteractive().on('pointerdown', this.clickButtonC, this);
-  this.img2.setInteractive({ cursor: 'url(public/assets/Game/star.png), pointer' }).on('pointerdown', this.clickButtonC, this);
+  this.C=this.add.text(posX_C,posY_C,"C", { color: '#000000', font: '32px Arial' }) ;
+  this.C.setInteractive().on('clicked', this.clickButtonC, this);
+  this.img2.setInteractive({ cursor: 'url(public/assets/Game/star.png), pointer' }).on('clicked', this.clickButtonC, this);
 
-  this.img3=this.add.rexCircleMaskImage(660, 500, '3', {
+  this.img3=this.add.rexCircleMaskImage(posX_D+10, posY_D-100, '1', {
             maskType: 'roundRectangle',
             radius: 100
         });
-  this.D=this.add.text(650,600,"D", { color: '#000000', font: '32px Arial' }) ;
+  this.D=this.add.text(posX_D,posY_D,"D", { color: '#000000', font: '32px Arial' }) ;
   this.D.setInteractive().on('pointerdown', this.clickButtonD, this);
-  this.img3.setInteractive({ cursor: 'url(public/assets/Game/star.png), pointer' }).on('pointerdown', this.clickButtonD, this);
+  this.img3.setInteractive({ cursor: 'url(public/assets/Game/star.png), pointer' }).on('clicked', this.clickButtonD, this);
 
 
-  this.img4=this.add.rexCircleMaskImage(960, 500, '4', {
+  this.img4=this.add.rexCircleMaskImage( posX_E+10, posY_E-100, '4', {
                        maskType: 'roundRectangle',
                        radius: 100
                    });
-  this.E=this.add.text(950,600,"E", { color: '#000000', font: '32px Arial' }) ;
-  this.E.setInteractive().on('pointerdown', this.clickButtonE, this);
-  this.img4.setInteractive({ cursor: 'url(public/assets/Game/star.png), pointer' }).on('pointerdown', this.clickButtonE, this);
+  this.E=this.add.text(posX_E,posY_E,"E", { color: '#000000', font: '32px Arial' }) ;
+  this.E.setInteractive().on('clicked', this.clickButtonE, this);
+  this.img4.setInteractive({ cursor: 'url(public/assets/Game/star.png), pointer' }).on('clicked', this.clickButtonE, this);
+  //  If a Game Object is clicked on, this event is fired.
+  //  We can use it to emit the 'clicked' event on the game object itself.
+    this.input.on('gameobjectup', function (pointer, gameObject)
+    {
+        gameObject.emit('clicked', gameObject);
+    }, this);
+ this.info = this.add.text(500, 10, '', { font: '48px Arial', fill: '#000000' });
 
   }
+
+update(){
+ this.info.setText('Dung: ' + countNumberRight +'\n Sai'+countNumberWrong  );
+}
+
+
+
+
+
+
+
+
    destroyObject() {
       for (let index = 0; index < arguments.length; index++) {
         arguments[index].setActive(false).setVisible(false);
@@ -100,27 +136,41 @@ create ()
         arguments[index].setVisible(isVisible);
       }
     }
+
+    clickButtonFalse(posX,posY,textX){
+
+        this.textX.destroy();
+        this.add.text(posX,posY,"textX", { color: '#FF0000', font: '32px Arial' }) ;
+        this.Animations();
+    }
     clickButtonA(){
     this.A.destroy();
-    this.AA=this.add.text(490,370,"A", { color: '#FF0000', font: '32px Arial' }) ;
+    this.AA=this.add.text(posX_A,posY_A,"A", { color: '#FF0000', font: '32px Arial' }) ;
     this.Animations();
+    countNumberWrong++;
+
     }
     clickButtonB(){
     this.B.destroy();
-    this.BB=this.add.text(790,370,"B", { color: '#FF0000', font: '32px Arial' }) ;
+    this.BB=this.add.text(posX_B,posY_B,"B", { color: '#00FF00', font: '32px Arial' }) ;
+    countNumberRight++;
     }
     clickButtonC(){
     this.C.destroy();
-    this.CC=this.add.text(350,600,"C", { color: '#00FF00', font: '32px Arial' }) ;
+    this.CC=this.add.text(posX_C,posY_C,"C", { color: '#00FF00', font: '32px Arial' }) ;
+
+    countNumberRight++;
 
     }
     clickButtonD(){
     this.D.destroy();
-     this.DD=this.add.text(650,600,"D", { color: '#FF0000', font: '32px Arial' }) ;
+     this.DD=this.add.text(posX_D,posY_D,"D", { color: '#FF0000', font: '32px Arial' }) ;
+      countNumberWrong++;
     }
     clickButtonE(){
     this.E.destroy();
-    this.EE=this.add.text(950,600,"E", { color: '#00FF00', font: '32px Arial' }) ;
+    this.EE=this.add.text(posX_E,posY_E,"E", { color: '#00FF00', font: '32px Arial' }) ;
+     countNumberRight++;
     }
 
     Animations(){
@@ -178,7 +228,14 @@ create ()
     });
     this.ani2.play("attack")
     }
+   chooseMusic(){
 
+       this.ImgMusic.destroy();
+       this.add.image(1000,10,'loa3').setOrigin(0).setDisplaySize(150, 150);
+       this.music.pause();
+
+
+   }
 
 
 

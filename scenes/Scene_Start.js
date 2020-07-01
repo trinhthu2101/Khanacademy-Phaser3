@@ -1,3 +1,13 @@
+var MusicCofig = {
+    mute: false,
+    volume: 1,
+    rate: 1,
+    detune: 0,
+    seek: 0,
+    loop: true,
+    delay: 0
+}
+
 class Scene_Start extends Phaser.Scene{
 constructor()
 {
@@ -7,6 +17,7 @@ constructor()
 preload(){
     this.load.atlas('start','public/assets/Game/start.png','public/assets/Game/start.json')
     this.load.image('ST','public/assets/Game/start5.png')
+    this.load.audio('music', "public/assets/Audio/bensound-cute.mp3")
 }
 create(){
  this.input.setDefaultCursor('url(public/assets/Game/blue.cur), pointer');
@@ -40,10 +51,15 @@ create(){
     repeat:-1
     });
      this.start.play("attack");*/
+   this.music = this.sound.add('music');
+
      this.play =this.add.image(550,300,"ST");
      this.play.setInteractive({ cursor: 'url(public/assets/Game/star.png), pointer' }).on('pointerdown', () => {
-      this.scene.start("Scene1");
+          this.scene.start("Scene1");
+         this.music.stop();
    });
+this.music.play();
+
 }
 
 }
