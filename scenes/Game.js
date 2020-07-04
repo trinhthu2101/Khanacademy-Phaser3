@@ -4,7 +4,7 @@ var config ={
     parent: 'mygame',
     backgroundColor: "#FFFFFF",
     width: 1120,
-    height: 670,
+    height: 700,
     scene: [Scene_Start,Scene1]
 };
 

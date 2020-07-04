@@ -56,9 +56,8 @@ create(){
      this.play =this.add.image(550,300,"ST");
      this.play.setInteractive({ cursor: 'url(public/assets/Game/star.png), pointer' }).on('pointerdown', () => {
           this.scene.start("Scene1");
-         this.music.stop();
+
    });
-this.music.play();
 
 }
 
