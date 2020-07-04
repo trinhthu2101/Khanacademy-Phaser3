@@ -16,51 +16,52 @@ var countNumberWrong=0;
 
 var radius = 25;
 var color = 0xffff00;
-      var thickness = 4;
-      var alpha = 1;
- class Scene1 extends Phaser.Scene{
+var thickness = 4;
+var alpha = 1;
+
+class Scene2 extends Phaser.Scene
+{
 
 constructor(){
-    super({key:'Scene1'});
+    super({key:'Scene2'});
     this.isRun=true;
-
 }
+
 preload ()
   {
   this.load.atlas('ani2','public/ani2.png','public/ani2.json')
   this.load.plugin('rexcirclemaskimageplugin', 'https://raw.githubusercontent.com/rexrainbow/phaser3-rex-notes/master/dist/rexcirclemaskimageplugin.min.js', true);
-  this.load.audio('thu7', "public/assets/Audio/audio1.mp3")
+  this.load.audio('thu7', "public/assets/Audio/audio2.mp3")
   this.load.audio('music', "public/assets/Audio/bensound-cute.mp3")
   this.load.path = 'public/assets/Game/';
   this.load.image('QA1', "QA1.png");
-  this.load.image('QA2', "QA2.png");
+  this.load.image('QA3', "QA3.png");
   this.load.image('loa', "loa.png");
-   this.load.image('reload', "reload.png");
+  this.load.image('reload', "reload.png");
   this.load.image('loa3', "loa3.png");
   this.load.image('loa33', "loa33.png");
-  this.load.image('4', "4.jpg");
-  this.load.image('3', "3.jpg");
 
-  this.load.image('2', "2.jpg");
-  this.load.image('1', "1.jpg");
-  this.load.image('5', "444.jpeg");
+  this.load.image('4', "55.jpg");
+  this.load.image('3', "66.jpg");
+
+  this.load.image('2', "22.jpg");
+  this.load.image('1', "11.jpg");
+  this.load.image('5', "77.jpg");
 
   }
 
 create ()
   {
-
-
   this.input.setDefaultCursor('url(public/assets/Game/blue.cur), pointer');
 
   this.add.image(230,350,'QA1');
-  this.QA2=this.add.image(230,97,'QA2');
+  this.QA2=this.add.image(30,10,'QA3').setOrigin(0).setDisplaySize(483,185);
 
   //Music
   this.ImgMusic=this.add.image(1000,10, 'loa33').setOrigin(0).setDisplaySize(150, 150);
   this.music = this.sound.add('music');
   this.ImgMusic.setInteractive({ cursor: 'url(public/assets/Game/star.png), pointer' }).on('pointerdown',this.chooseMusic,this);
-  this.music.play(MusicCofig);
+  //this.music.play(MusicCofig);
 
 
   //Audio
@@ -75,7 +76,7 @@ create ()
   this.graphics.lineStyle(thickness, color, alpha);
 
 
-
+ //img1
  this.img1= this.add.rexCircleMaskImage(posX_A+10, posY_A-100, '1', {
                        maskType: 'roundRectangle',
                        radius: 100
@@ -83,7 +84,7 @@ create ()
  this.img1.setInteractive({ cursor: 'url(public/assets/Game/star.png), pointer' }).once('clicked', this.clickButtonA, this);
  this.A=this.add.text(posX_A+120,posY_A+105,"A", { color: '#000000', font: '32px Arial' }) ;
  this.A.setInteractive({ cursor: 'url(public/assets/Game/star.png), pointer' }).once('clicked', this.clickButtonA, this);
-
+//img5
  this.img5= this.add.rexCircleMaskImage(posX_B+10, posY_B-100, '5', {
                                           maskType: 'roundRectangle',
                                           radius: 100
@@ -91,7 +92,7 @@ create ()
  this.B=this.add.text(posX_B+120,posY_B+105,"B", { color: '#000000', font: '32px Arial' }) ;
  this.B.setInteractive({ cursor: 'url(public/assets/Game/star.png), pointer' }).once('clicked', this.clickButtonB, this);
  this.img5.setInteractive({ cursor: 'url(public/assets/Game/star.png), pointer' }).once('clicked', this.clickButtonB, this);
-
+//img2
   this.img2=this.add.rexCircleMaskImage(posX_C+10, posY_C-100, '2', {
                                   maskType: 'roundRectangle',
                                   radius: 100
@@ -99,7 +100,7 @@ create ()
   this.C=this.add.text(posX_C+120,posY_C+105,"C", { color: '#000000', font: '32px Arial' }) ;
   this.C.setInteractive({ cursor: 'url(public/assets/Game/star.png), pointer' }).once('clicked', this.clickButtonC, this);
   this.img2.setInteractive({ cursor: 'url(public/assets/Game/star.png), pointer' }).once('clicked', this.clickButtonC, this);
-
+//img3
   this.img3=this.add.rexCircleMaskImage(posX_D+10, posY_D-100, '3', {
             maskType: 'roundRectangle',
             radius: 100
@@ -108,7 +109,7 @@ create ()
   this.D.setInteractive({ cursor: 'url(public/assets/Game/star.png), pointer' }).once('pointerdown', this.clickButtonD, this);
   this.img3.setInteractive({ cursor: 'url(public/assets/Game/star.png), pointer' }).once('clicked', this.clickButtonD, this);
 
-
+//img4
   this.img4=this.add.rexCircleMaskImage( posX_E+10, posY_E-100, '4', {
                        maskType: 'roundRectangle',
                        radius: 100
@@ -122,27 +123,21 @@ create ()
     {
         gameObject.emit('clicked', gameObject);
     }, this);
- this.info = this.add.text(500, 10, '', { font: '48px Arial', fill: '#000000' });
-
+   this.info = this.add.text(500, 10, '', { font: '48px Arial', fill: '#000000' });
   }
 
 update(){
 
- if (countNumberRight==3&&countNumberWrong==0){
- this.destroyObject(this.img1,this.img3,this.A,this.D,this.BB,this.CC,this.EE,this.B,this.C,this.D,this.E);
+ if (countNumberRight==2&&countNumberWrong==0){
+ this.destroyObject(this.img2,this.img3,this.img4,this.A,this.B,this.C,this.D,this.E,this.AA,this.BB);
 
   if (this.isRun) {
-   this.run();
+      this.run();
     }
-  if (this.img5.x==550){
+  if (this.img1.y==300){
        this.setRun(false);
-       setTimeout(()=>{
 
-       this.scene.start("Scene2");
-       },1500)
-
-    }
-
+}
 }
   else if (countNumberWrong==2){
 
@@ -150,82 +145,58 @@ update(){
 
    this.again.setInteractive().on('pointerdown',() =>{
 
-   // this.events.off();﻿ // disable all active events
-    //this.music.stop();
 window.location.href = 'Game.html'
     //let Scene_Start = this.scene.get('Sence_Start');
     //this.scene.start();// restart current scene
 
  });
  }
-  //this.info.setText('Dung: ' + countNumberRight +'\n Sai :'+countNumberWrong  );
+  this.info.setText('Dung: ' + countNumberRight +'\n Sai :'+countNumberWrong  );
 }
-
 run(){
-this.img5.x--;
-this.img2.x++;
-this.img4.x--;
+this.img5.y++;
+this.img1.y++;
+
 }
-setRun(x){
-this.isRun=x
+setRun(t){
+this.isRun=t;
 }
 
    destroyObject() {
-      for (let index = 0; index < arguments.length; index++) {
-        arguments[index].setActive(false).setVisible(false);
+        for (let index = 0; index < arguments.length; index++) {
+          arguments[index].setActive(false).setVisible(false);
+        }
       }
-    }
-    setObjectVisible(isVisible) {
-      for (let index = 1; index < arguments.length; index++) {
-        arguments[index].setVisible(isVisible);
+      setObjectVisible(isVisible) {
+        for (let index = 1; index < arguments.length; index++) {
+          arguments[index].setVisible(isVisible);
+        }
       }
-    }
 
-    clickButtonFalse(posX,posY,textX){
 
-        this.textX.destroy();
-        this.add.text(posX,posY,"textX", { color: '#FF0000', font: '32px Arial' }) ;
-        this.Animations();
-    }
     clickButtonA(){
-    //this.destroyObject(this.A)
-   //this.AA = new Phaser.Curves.Path(posX_A,posY_A, { color: '#FF0000'}).circleTo(100);
-    //this.AA=this.add.text(posX_A,posY_A,"A", { color: '#FF0000', font: '32px Arial' }) ;
-    this.graphics.strokeCircle(posX_A+130,posY_A+125, radius);
-
-    countNumberWrong++;
-
-
+       this.AA=this.graphics.strokeCircle(posX_A+130,posY_A+125, radius);
+        countNumberRight++;
     }
     clickButtonB(){
-    // this.destroyObject(this.B)
-    // this.BB=this.add.text(posX_B,posY_B,"B", { color: '#00FF00', font: '32px Arial' }) ;
-   this.BB=this.graphics.strokeCircle(posX_B+130,posY_B+125, radius);
+    this.BB=this.graphics.strokeCircle(posX_B+130,posY_B+125, radius);
     countNumberRight++;
-
 
     }
     clickButtonC(){
-    //this.C.destroy();
-    //this.CC=this.add.text(posX_C,posY_C,"C", { color: '#00FF00', font: '32px Arial' }) ;
-     this.CC=this.graphics.strokeCircle(posX_C+130,posY_C+125, radius);
-    countNumberRight++;
-
+    this.CC=this.graphics.strokeCircle(posX_C+130,posY_C+125, radius);
+    countNumberWrong++;
 
     }
     clickButtonD(){
-    //this.D.destroy();
-    //this.DD=this.add.text(posX_D,posY_D,"D", { color: '#FF0000', font: '32px Arial' }) ;
-       this.DD=this.graphics.strokeCircle(posX_D+130,posY_D+125, radius);
+     this.DD=this.graphics.strokeCircle(posX_D+130,posY_D+125, radius);
       countNumberWrong++;
     this.Animations();
 
     }
     clickButtonE(){
-    //this.E.destroy();
-   // this.EE=this.add.text(posX_E,posY_E,"E", { color: '#00FF00', font: '32px Arial' }) ;
-     this.EE= this.graphics.strokeCircle(posX_E+130,posY_E+125, radius);
-     countNumberRight++;
+    this.EE= this.graphics.strokeCircle(posX_E+130,posY_E+125, radius);
+     countNumberWrong++;
 
     }
 
@@ -289,12 +260,7 @@ this.isRun=x
        this.ImgMusic.destroy();
        this.add.image(1000,10,'loa3').setOrigin(0).setDisplaySize(150, 150);
        this.music.pause();
-
-
    }
-
-
-
 }
 
 
