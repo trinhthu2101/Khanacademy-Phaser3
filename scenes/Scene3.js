@@ -1,27 +1,12 @@
 
-var posX_A=400;
-var posY_A=280;
-var posX_B=700;
-var posY_B=280;
-var posX_C=250;
-var posY_C=530;
-var posX_D=550;
-var posY_D=530;
-var posX_E=850;
-var posY_E=530;
-
-var radius = 25;
-var color = 0xffff00;
-      var thickness = 4;
-      var alpha = 1;
- class Scene1 extends Phaser.Scene{
-
+class Scene3 extends Phaser.Scene
+{
 
 constructor(){
-    super({key:'Scene1'});
+    super({key:'Scene3'});
     this.isRun=true;
-
 }
+
 preload ()
   {
   this.load.atlas('ani2','public/ani2.png','public/ani2.json')
@@ -32,34 +17,33 @@ preload ()
   this.load.image('QA1', "QA1.png");
   this.load.image('QA2', "QA2.png");
   this.load.image('loa', "loa.png");
-   this.load.image('reload', "reload.png");
+  this.load.image('reload', "reload.png");
   this.load.image('loa3', "loa3.png");
   this.load.image('loa33', "loa33.png");
-  this.load.image('4', "4.jpg");
-  this.load.image('3', "3.jpg");
 
-  this.load.image('2', "2.jpg");
-  this.load.image('1', "1.jpg");
-  this.load.image('5', "444.jpeg");
+  this.load.image('444', "scene3.5.jpg");
+  this.load.image('333', "scene3.4.jpg");
 
+  this.load.image('222', "scene7.jpg");
+  this.load.image('111', "Scene3.6.jpg");
+  this.load.image('555', "scene3.2.jpg");
+
+this.load.image('win',"win.png")
   }
 
 create ()
   {
-
+  this.input.setDefaultCursor('url(public/assets/Game/blue.cur), pointer');
 this.countNumberWrong=0;
 this.countNumberRight=0;
-  this.input.setDefaultCursor('url(public/assets/Game/blue.cur), pointer');
 
   this.add.image(230,350,'QA1');
-  this.QA2=this.add.image(230,97,'QA2');
-
+   this.QA2=this.add.image(230,97,'QA2');
   //Music
   this.ImgMusic=this.add.image(1000,10, 'loa33').setOrigin(0).setDisplaySize(150, 150);
   this.music = this.sound.add('music');
   this.ImgMusic.setInteractive({ cursor: 'url(public/assets/Game/star.png), pointer' }).on('pointerdown',this.chooseMusic,this);
   this.music.play(MusicCofig);
-
 
   //Audio
   this.loa=this.add.image(255, 135,'loa').setOrigin(0).setDisplaySize(35, 35);
@@ -73,32 +57,32 @@ this.countNumberRight=0;
   this.graphics.lineStyle(thickness, color, alpha);
 
 
-
- this.img1= this.add.rexCircleMaskImage(posX_A+10, posY_A-100, '1', {
+ //img1
+ this.img1= this.add.rexCircleMaskImage(posX_A+10, posY_A-100, '111', {
                        maskType: 'roundRectangle',
                        radius: 100
                    }).setOrigin(0).setDisplaySize(250, 200);
  this.img1.setInteractive({ cursor: 'url(public/assets/Game/star.png), pointer' }).once('clicked', this.clickButtonA, this);
  this.A=this.add.text(posX_A+120,posY_A+105,"A", { color: '#000000', font: '32px Arial' }) ;
  this.A.setInteractive({ cursor: 'url(public/assets/Game/star.png), pointer' }).once('clicked', this.clickButtonA, this);
-
- this.img5= this.add.rexCircleMaskImage(posX_B+10, posY_B-100, '5', {
+//img5
+ this.img5= this.add.rexCircleMaskImage(posX_B+10, posY_B-100, '555', {
                                           maskType: 'roundRectangle',
                                           radius: 100
                                       }).setOrigin(0).setDisplaySize(250, 200);
  this.B=this.add.text(posX_B+120,posY_B+105,"B", { color: '#000000', font: '32px Arial' }) ;
  this.B.setInteractive({ cursor: 'url(public/assets/Game/star.png), pointer' }).once('clicked', this.clickButtonB, this);
  this.img5.setInteractive({ cursor: 'url(public/assets/Game/star.png), pointer' }).once('clicked', this.clickButtonB, this);
-
-  this.img2=this.add.rexCircleMaskImage(posX_C+10, posY_C-100, '2', {
+//img2
+  this.img2=this.add.rexCircleMaskImage(posX_C+10, posY_C-100, '222', {
                                   maskType: 'roundRectangle',
                                   radius: 100
                               }).setOrigin(0).setDisplaySize(250, 200);
   this.C=this.add.text(posX_C+120,posY_C+105,"C", { color: '#000000', font: '32px Arial' }) ;
   this.C.setInteractive({ cursor: 'url(public/assets/Game/star.png), pointer' }).once('clicked', this.clickButtonC, this);
   this.img2.setInteractive({ cursor: 'url(public/assets/Game/star.png), pointer' }).once('clicked', this.clickButtonC, this);
-
-  this.img3=this.add.rexCircleMaskImage(posX_D+10, posY_D-100, '3', {
+//img3
+  this.img3=this.add.rexCircleMaskImage(posX_D+10, posY_D-100, '333', {
             maskType: 'roundRectangle',
             radius: 100
         }).setOrigin(0).setDisplaySize(250, 200);
@@ -106,8 +90,8 @@ this.countNumberRight=0;
   this.D.setInteractive({ cursor: 'url(public/assets/Game/star.png), pointer' }).once('pointerdown', this.clickButtonD, this);
   this.img3.setInteractive({ cursor: 'url(public/assets/Game/star.png), pointer' }).once('clicked', this.clickButtonD, this);
 
-
-  this.img4=this.add.rexCircleMaskImage( posX_E+10, posY_E-100, '4', {
+//img4
+  this.img4=this.add.rexCircleMaskImage( posX_E+10, posY_E-100, '444', {
                        maskType: 'roundRectangle',
                        radius: 100
                    }).setOrigin(0).setDisplaySize(250, 200);
@@ -120,109 +104,85 @@ this.countNumberRight=0;
     {
         gameObject.emit('clicked', gameObject);
     }, this);
- this.info = this.add.text(500, 10, '', { font: '48px Arial', fill: '#000000' });
-
+   this.info = this.add.text(500, 10, '', { font: '48px Arial', fill: '#000000' });
   }
 
 update(){
 
  if (this.countNumberRight==3&&this.countNumberWrong==0){
- this.destroyObject(this.img1,this.img3,this.A,this.D,this.BB,this.CC,this.EE,this.B,this.C,this.D,this.E);
+ this.destroyObject(this.img2,this.img3,this.A,this.B,this.C,this.D,this.E,this.AA,this.BB);
 
   if (this.isRun) {
-   this.run();
+      this.run();
     }
-  if (this.img5.x==550){
+  if (this.img4.x==550){
        this.setRun(false);
-      this.music.stop();
+  //this.destroyObject(this.img1,this.img3,this.img5);
+  setTimeout(()=>{
+  this.win=this.add.image(700,400,"win")
+  //this.win.setInteractive().on.('pointerdown',()=>{window.location.href = 'age_Li.html'});
+   this.win.setInteractive().on('pointerdown',() =>{
+       window.location.href = 'Page_Li.html'
+     });
 
 
-      this.scene.start("Scene2");
 
-    }
-
+  },1000);
+}
 }
   else if (this.countNumberWrong==2){
 
    this.again=this.add.image(1040,170,'reload').setOrigin(0).setDisplaySize(70, 70);
-
-   this.again.setInteractive().on('pointerdown',() =>{
-
-   // this.events.off();﻿ // disable all active events
-    this.music.stop();
-//window.location.href = 'Game.html'
-    //let Scene_Start = this.scene.get('Sence_Start');
-    this.scene.start();// restart current scene
-
- });
+     this.again.setInteractive().on('pointerdown',() =>{
+      this.scene.start();// restart current scene
+     this.music.stop();
+   });
  }
   //this.info.setText('Dung: ' + this.countNumberRight +'\n Sai :'+this.countNumberWrong  );
 }
-
 run(){
-this.img5.x--;
-this.img2.x++;
 this.img4.x--;
+
+
 }
-setRun(x){
-this.isRun=x
+setRun(t){
+this.isRun=t;
 }
 
    destroyObject() {
-      for (let index = 0; index < arguments.length; index++) {
-        arguments[index].setActive(false).setVisible(false);
+        for (let index = 0; index < arguments.length; index++) {
+          arguments[index].setActive(false).setVisible(false);
+        }
       }
-    }
-    setObjectVisible(isVisible) {
-      for (let index = 1; index < arguments.length; index++) {
-        arguments[index].setVisible(isVisible);
+      setObjectVisible(isVisible) {
+        for (let index = 1; index < arguments.length; index++) {
+          arguments[index].setVisible(isVisible);
+        }
       }
-    }
 
-    clickButtonFalse(posX,posY,textX){
 
-        this.textX.destroy();
-        this.add.text(posX,posY,"textX", { color: '#FF0000', font: '32px Arial' }) ;
-        this.Animations();
-    }
     clickButtonA(){
-    //this.destroyObject(this.A)
-   //this.AA = new Phaser.Curves.Path(posX_A,posY_A, { color: '#FF0000'}).circleTo(100);
-    //this.AA=this.add.text(posX_A,posY_A,"A", { color: '#FF0000', font: '32px Arial' }) ;
-    this.graphics.strokeCircle(posX_A+130,posY_A+125, radius);
-
-    this.countNumberWrong++;
-
-
+       this.AA=this.graphics.strokeCircle(posX_A+130,posY_A+125, radius);
+        this.countNumberRight++;
     }
     clickButtonB(){
-    // this.destroyObject(this.B)
-    // this.BB=this.add.text(posX_B,posY_B,"B", { color: '#00FF00', font: '32px Arial' }) ;
-   this.BB=this.graphics.strokeCircle(posX_B+130,posY_B+125, radius);
+    this.BB=this.graphics.strokeCircle(posX_B+130,posY_B+125, radius);
     this.countNumberRight++;
-
 
     }
     clickButtonC(){
-    //this.C.destroy();
-    //this.CC=this.add.text(posX_C,posY_C,"C", { color: '#00FF00', font: '32px Arial' }) ;
-     this.CC=this.graphics.strokeCircle(posX_C+130,posY_C+125, radius);
-    this.countNumberRight++;
-
+    this.CC=this.graphics.strokeCircle(posX_C+130,posY_C+125, radius);
+    this.countNumberWrong++;
 
     }
     clickButtonD(){
-    //this.D.destroy();
-    //this.DD=this.add.text(posX_D,posY_D,"D", { color: '#FF0000', font: '32px Arial' }) ;
-       this.DD=this.graphics.strokeCircle(posX_D+130,posY_D+125, radius);
+     this.DD=this.graphics.strokeCircle(posX_D+130,posY_D+125, radius);
       this.countNumberWrong++;
     this.Animations();
 
     }
     clickButtonE(){
-    //this.E.destroy();
-   // this.EE=this.add.text(posX_E,posY_E,"E", { color: '#00FF00', font: '32px Arial' }) ;
-     this.EE= this.graphics.strokeCircle(posX_E+130,posY_E+125, radius);
+    this.EE= this.graphics.strokeCircle(posX_E+130,posY_E+125, radius);
      this.countNumberRight++;
 
     }
@@ -287,12 +247,7 @@ this.isRun=x
        this.ImgMusic.destroy();
        this.add.image(1000,10,'loa3').setOrigin(0).setDisplaySize(150, 150);
        this.music.pause();
-
-
    }
-
-
-
 }
 
 

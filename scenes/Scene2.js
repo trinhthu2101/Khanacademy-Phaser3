@@ -1,24 +1,4 @@
 
-var posX_A=400;
-var posY_A=280;
-var posX_B=700;
-var posY_B=280;
-var posX_C=250;
-var posY_C=530;
-var posX_D=550;
-var posY_D=530;
-var posX_E=850;
-var posY_E=530;
-var countNumberRight=0;
-
-var countNumberWrong=0;
-
-
-var radius = 25;
-var color = 0xffff00;
-var thickness = 4;
-var alpha = 1;
-
 class Scene2 extends Phaser.Scene
 {
 
@@ -41,28 +21,28 @@ preload ()
   this.load.image('loa3', "loa3.png");
   this.load.image('loa33', "loa33.png");
 
-  this.load.image('4', "55.jpg");
-  this.load.image('3', "66.jpg");
+  this.load.image('44', "555.jpg");
+  this.load.image('33', "66.jpg");
 
-  this.load.image('2', "22.jpg");
-  this.load.image('1', "11.jpg");
-  this.load.image('5', "77.jpg");
+  this.load.image('22', "22.jpg");
+  this.load.image('11', "11.jpg");
+  this.load.image('55', "77.jpg");
 
   }
 
 create ()
   {
   this.input.setDefaultCursor('url(public/assets/Game/blue.cur), pointer');
-
+this.countNumberWrong=0;
+this.countNumberRight=0;
   this.add.image(230,350,'QA1');
-  this.QA2=this.add.image(30,10,'QA3').setOrigin(0).setDisplaySize(483,185);
+  this.QA3=this.add.image(30,10,'QA3').setOrigin(0).setDisplaySize(483,185);
 
   //Music
   this.ImgMusic=this.add.image(1000,10, 'loa33').setOrigin(0).setDisplaySize(150, 150);
   this.music = this.sound.add('music');
   this.ImgMusic.setInteractive({ cursor: 'url(public/assets/Game/star.png), pointer' }).on('pointerdown',this.chooseMusic,this);
-  //this.music.play(MusicCofig);
-
+  this.music.play(MusicCofig);
 
   //Audio
   this.loa=this.add.image(255, 135,'loa').setOrigin(0).setDisplaySize(35, 35);
@@ -77,7 +57,7 @@ create ()
 
 
  //img1
- this.img1= this.add.rexCircleMaskImage(posX_A+10, posY_A-100, '1', {
+ this.img1= this.add.rexCircleMaskImage(posX_A+10, posY_A-100, '11', {
                        maskType: 'roundRectangle',
                        radius: 100
                    }).setOrigin(0).setDisplaySize(250, 200);
@@ -85,7 +65,7 @@ create ()
  this.A=this.add.text(posX_A+120,posY_A+105,"A", { color: '#000000', font: '32px Arial' }) ;
  this.A.setInteractive({ cursor: 'url(public/assets/Game/star.png), pointer' }).once('clicked', this.clickButtonA, this);
 //img5
- this.img5= this.add.rexCircleMaskImage(posX_B+10, posY_B-100, '5', {
+ this.img5= this.add.rexCircleMaskImage(posX_B+10, posY_B-100, '55', {
                                           maskType: 'roundRectangle',
                                           radius: 100
                                       }).setOrigin(0).setDisplaySize(250, 200);
@@ -93,7 +73,7 @@ create ()
  this.B.setInteractive({ cursor: 'url(public/assets/Game/star.png), pointer' }).once('clicked', this.clickButtonB, this);
  this.img5.setInteractive({ cursor: 'url(public/assets/Game/star.png), pointer' }).once('clicked', this.clickButtonB, this);
 //img2
-  this.img2=this.add.rexCircleMaskImage(posX_C+10, posY_C-100, '2', {
+  this.img2=this.add.rexCircleMaskImage(posX_C+10, posY_C-100, '22', {
                                   maskType: 'roundRectangle',
                                   radius: 100
                               }).setOrigin(0).setDisplaySize(250, 200);
@@ -101,7 +81,7 @@ create ()
   this.C.setInteractive({ cursor: 'url(public/assets/Game/star.png), pointer' }).once('clicked', this.clickButtonC, this);
   this.img2.setInteractive({ cursor: 'url(public/assets/Game/star.png), pointer' }).once('clicked', this.clickButtonC, this);
 //img3
-  this.img3=this.add.rexCircleMaskImage(posX_D+10, posY_D-100, '3', {
+  this.img3=this.add.rexCircleMaskImage(posX_D+10, posY_D-100, '33', {
             maskType: 'roundRectangle',
             radius: 100
         }).setOrigin(0).setDisplaySize(250, 200);
@@ -110,7 +90,7 @@ create ()
   this.img3.setInteractive({ cursor: 'url(public/assets/Game/star.png), pointer' }).once('clicked', this.clickButtonD, this);
 
 //img4
-  this.img4=this.add.rexCircleMaskImage( posX_E+10, posY_E-100, '4', {
+  this.img4=this.add.rexCircleMaskImage( posX_E+10, posY_E-100, '44', {
                        maskType: 'roundRectangle',
                        radius: 100
                    }).setOrigin(0).setDisplaySize(250, 200);
@@ -128,7 +108,7 @@ create ()
 
 update(){
 
- if (countNumberRight==2&&countNumberWrong==0){
+ if (this.countNumberRight==2&&this.countNumberWrong==0){
  this.destroyObject(this.img2,this.img3,this.img4,this.A,this.B,this.C,this.D,this.E,this.AA,this.BB);
 
   if (this.isRun) {
@@ -136,22 +116,24 @@ update(){
     }
   if (this.img1.y==300){
        this.setRun(false);
+       this.scene.start("Scene3");
+       this.music.stop();
 
 }
 }
-  else if (countNumberWrong==2){
+  else if (this.countNumberWrong==2){
 
    this.again=this.add.image(1040,170,'reload').setOrigin(0).setDisplaySize(70, 70);
 
    this.again.setInteractive().on('pointerdown',() =>{
 
-window.location.href = 'Game.html'
+//window.location.href = 'Scene2.js'
     //let Scene_Start = this.scene.get('Sence_Start');
-    //this.scene.start();// restart current scene
-
+    this.scene.start();// restart current scene
+    this.music.stop();
  });
  }
-  this.info.setText('Dung: ' + countNumberRight +'\n Sai :'+countNumberWrong  );
+  //this.info.setText('Dung: ' + this.countNumberRight +'\n Sai :'+this.countNumberWrong  );
 }
 run(){
 this.img5.y++;
@@ -176,27 +158,27 @@ this.isRun=t;
 
     clickButtonA(){
        this.AA=this.graphics.strokeCircle(posX_A+130,posY_A+125, radius);
-        countNumberRight++;
+        this.countNumberRight++;
     }
     clickButtonB(){
     this.BB=this.graphics.strokeCircle(posX_B+130,posY_B+125, radius);
-    countNumberRight++;
+    this.countNumberRight++;
 
     }
     clickButtonC(){
     this.CC=this.graphics.strokeCircle(posX_C+130,posY_C+125, radius);
-    countNumberWrong++;
+    this.countNumberWrong++;
 
     }
     clickButtonD(){
      this.DD=this.graphics.strokeCircle(posX_D+130,posY_D+125, radius);
-      countNumberWrong++;
+      this.countNumberWrong++;
     this.Animations();
 
     }
     clickButtonE(){
     this.EE= this.graphics.strokeCircle(posX_E+130,posY_E+125, radius);
-     countNumberWrong++;
+     this.countNumberWrong++;
 
     }
 
