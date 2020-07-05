@@ -25,7 +25,7 @@ preload ()
   this.load.image('333', "scene3.4.jpg");
 
   this.load.image('222', "scene7.jpg");
-  this.load.image('111', "Scene3.666.jpg");
+  this.load.image('111', "scene3.6.jpg");
   this.load.image('555', "scene3.2.jpg");
 
 this.load.image('win',"win.png")
