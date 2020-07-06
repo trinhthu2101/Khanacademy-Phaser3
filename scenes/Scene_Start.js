@@ -17,10 +17,59 @@ constructor()
 preload(){
     this.load.atlas('start','public/assets/Game/start.png','public/assets/Game/start.json')
     this.load.image('ST','public/assets/Game/start5.png')
+    this.load.image('block','public/assets/Game/50x50-black.png')
     this.load.audio('music', "public/assets/Audio/bensound-cute.mp3")
 }
 create(){
- this.input.setDefaultCursor('url(public/assets/Game/blue.cur), pointer');
+  this.input.setDefaultCursor('url(public/assets/Game/blue.cur), pointer');
+  this.music = this.sound.add('music');
+  this.music.play();
+  this.play =this.add.image(550,300,"ST");
+  this.play.setInteractive({ cursor: 'url(public/assets/Game/star.png), pointer' }).on('pointerdown', () => {
+       this.scene.start("Scene1");
+       this. music.stop();
+     });
+
+
+     //animation block
+  var blocks = this.add.group({ key: 'block', repeat: 350 });
+
+     Phaser.Actions.GridAlign(blocks.getChildren(), {
+         width: 23,
+         cellWidth: 50,
+         cellHeight: 50,
+         x: 25,
+         y: 25
+     });
+
+     var _this = this;
+
+     var i = 0;
+
+     blocks.children.iterate(function (child) {
+
+         _this.tweens.add({
+             targets: child,
+             scaleX: 0,
+             scaleY: 0,
+             alpha: 0,
+             y: '+=100',
+             angle: 180,
+             ease: 'Power3',
+             duration: 1000,
+             delay: 1000 + (i * 100)
+         });
+
+         i++;
+
+         //  Change the value 32 for different results
+         if (i % 16 === 0)
+         {
+             i = 0;
+         }
+
+     });
+
 
    /* this.start=this.add.sprite(550,300,"start");
     var frameNames=this.textures.get('start').getFrameNames();
@@ -51,13 +100,7 @@ create(){
     repeat:-1
     });
      this.start.play("attack");*/
-   this.music = this.sound.add('music');
-this.music.play();
-     this.play =this.add.image(550,300,"ST");
-     this.play.setInteractive({ cursor: 'url(public/assets/Game/star.png), pointer' }).on('pointerdown', () => {
-          this.scene.start("Scene1");
-this. music.stop();
-   });
+
 
 }
 
