@@ -19,6 +19,9 @@ preload(){
     this.load.image('ST','public/assets/Game/start5.png')
     this.load.image('block','public/assets/Game/50x50-black.png')
     this.load.audio('music', "public/assets/Audio/bensound-cute.mp3")
+    this.load.pack("packScene","public/assets/sceneImg.json")
+    this.load.pack("packSceneAu","public/assets/audio.json")
+
 }
 create(){
   this.input.setDefaultCursor('url(public/assets/Game/blue.cur), pointer');

@@ -26,27 +26,13 @@ preload ()
   {
   this.load.atlas('ani2','public/ani2.png','public/ani2.json')
   this.load.plugin('rexcirclemaskimageplugin', 'https://raw.githubusercontent.com/rexrainbow/phaser3-rex-notes/master/dist/rexcirclemaskimageplugin.min.js', true);
-  this.load.audio('thu7', "public/assets/Audio/audio1.mp3")
-  this.load.audio('music', "public/assets/Audio/bensound-cute.mp3")
-  this.load.path = 'public/assets/Game/';
-  this.load.image('QA1', "QA1.png");
-  this.load.image('QA2', "QA2.png");
-  this.load.image('loa', "loa.png");
-  this.load.image('reload', "reload.png");
-  this.load.image('loa3', "loa3.png");
-  this.load.image('loa33', "loa33.png");
-  this.load.image('4', "4.jpg");
-  this.load.image('3', "3.jpg");
-
-  this.load.image('2', "2.jpg");
-  this.load.image('1', "1.jpg");
-  this.load.image('5', "444.jpeg");
 
   }
 
 create ()
   {
-
+  //var cache=this.cache.image;
+  //cache.remove(packScene1);
   this.countNumberWrong=0;
   this.countNumberRight=0;
   this.input.setDefaultCursor('url(public/assets/Game/blue.cur), pointer');
@@ -63,7 +49,7 @@ create ()
 
   //Audio
   this.loa=this.add.image(255, 135,'loa').setOrigin(0).setDisplaySize(35, 35);
-  this.audio = this.sound.add('thu7');
+  this.audio = this.sound.add('audio1');
   this.loa.setInteractive({ cursor: 'url(public/assets/Game/star.png), pointer' }).on('pointerdown', () => {
   this.audio.play();
     });

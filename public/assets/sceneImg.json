@@ -1,0 +1,128 @@
+{
+  "sceneImg": {
+    "files": [
+      {
+        "type": "image",
+        "key": "QA1",
+        "url":"public/assets/Game/QA1.png"
+      },
+      {
+        "type": "image",
+        "key": "QA2",
+        "url":"public/assets/Game/QA2.png"
+      },
+      {
+        "type": "image",
+        "key": "loa",
+        "url":"public/assets/Game/loa.png"
+      },
+      {
+        "type": "image",
+        "key": "reload",
+        "url":"public/assets/Game/reload.png"
+      },
+      {
+        "type": "image",
+        "key": "loa3",
+        "url":"public/assets/Game/loa3.png"
+      },
+      {
+        "type": "image",
+        "key": "loa33",
+        "url":"public/assets/Game/loa33.png"
+      },
+      {
+        "type": "image",
+        "key": "1",
+        "url":"public/assets/Game/1.jpg"
+      },
+      {
+        "type": "image",
+        "key": "2",
+        "url":"public/assets/Game/2.jpg"
+      },
+      {
+        "type": "image",
+        "key": "3",
+        "url":"public/assets/Game/3.jpg"
+      },
+      {
+        "type": "image",
+        "key": "4",
+        "url":"public/assets/Game/4.jpg"
+      },
+      {
+        "type": "image",
+        "key": "5",
+        "url":"public/assets/Game/444.jpeg"
+      },
+      {
+        "type": "image",
+        "key": "QA3",
+        "url":"public/assets/Game/QA3.png"
+      },
+      {
+        "type": "image",
+        "key": "55",
+        "url":"public/assets/Game/77.jpg"
+      },
+      {
+        "type": "image",
+        "key": "44",
+        "url":"public/assets/Game/555.jpg"
+      },
+      {
+        "type": "image",
+        "key": "33",
+        "url":"public/assets/Game/66.jpg"
+      },
+      {
+        "type": "image",
+        "key": "22",
+        "url":"public/assets/Game/22.jpg"
+      },
+      {
+        "type": "image",
+        "key": "11",
+        "url":"public/assets/Game/11.jpg"
+      },
+      {
+        "type": "image",
+        "key": "555",
+        "url":"public/assets/Game/scene3.2.jpg"
+      },
+      {
+        "type": "image",
+        "key": "444",
+        "url":"public/assets/Game/scene3.5.jpg"
+      },
+      {
+        "type": "image",
+        "key": "333",
+        "url":"public/assets/Game/scene3.4.jpg"
+      },
+      {
+        "type": "image",
+        "key": "222",
+        "url":"public/assets/Game/scene7.jpg"
+      },
+      {
+        "type": "image",
+        "key": "111",
+        "url":"public/assets/Game/scene3.6.jpg"
+      },
+      {
+        "type": "image",
+        "key": "win",
+        "url":"public/assets/Game/win.png"
+      }
+    ]
+  },
+  "meta": {
+    "generated": "1401380327373",
+    "app": "Phaser 3 Asset Packer",
+    "url": "https://phaser.io",
+    "version": "1.0",
+    "copyright": "Photon Storm Ltd. 2018"
+  }
+}

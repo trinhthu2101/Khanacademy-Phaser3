@@ -1,0 +1,28 @@
+{
+  "sceneImg": {
+    "files": [
+      {
+        "type": "audio",
+        "key": "audio1",
+        "url":"public/assets/Audio/audio1.mp3"
+      },
+      {
+        "type": "audio",
+        "key": "music",
+        "url":"public/assets/Audio/bensound-cute.mp3"
+      },
+      {
+        "type": "audio",
+        "key": "audio2",
+        "url":"public/assets/Audio/audio2.mp3"
+      }
+    ]
+  },
+  "meta": {
+    "generated": "1401380327373",
+    "app": "Phaser 3 Asset Packer",
+    "url": "https://phaser.io",
+    "version": "1.0",
+    "copyright": "Photon Storm Ltd. 2018"
+  }
+}
