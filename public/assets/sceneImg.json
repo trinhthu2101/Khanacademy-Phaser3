@@ -3,6 +3,16 @@
     "files": [
       {
         "type": "image",
+        "key": "ST",
+        "url":"public/assets/Game/start5.png"
+      },
+      {
+        "type": "image",
+        "key": "block",
+        "url":"public/assets/Game/50x50-black.png"
+      },
+      {
+        "type": "image",
         "key": "QA1",
         "url":"public/assets/Game/QA1.png"
       },
