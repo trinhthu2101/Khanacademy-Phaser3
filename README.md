@@ -20,5 +20,7 @@ II.	Nền tảng sử dụng
            FrameWorks :Phaser 3,Bootstrap 4
            
     6.Ngôn ngữ lập trình :HTML,CSS,JS.
+
+    7.Chỉnh sửa data :public/assets/  sceneImg.json và audio.json
  
 Link : https://thu21.github.io/Khanacademy-Phaser3/index.html

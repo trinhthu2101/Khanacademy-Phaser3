@@ -19,6 +19,9 @@ preload(){
 
     this.load.pack("packScene","public/assets/sceneImg.json")
     this.load.pack("packSceneAu","public/assets/audio.json")
+    this.load.atlas('ani2','public/ani2.png','public/ani2.json')
+    this.load.plugin('rexcirclemaskimageplugin', 'https://raw.githubusercontent.com/rexrainbow/phaser3-rex-notes/master/dist/rexcirclemaskimageplugin.min.js', true);
+
 
 }
 create(){

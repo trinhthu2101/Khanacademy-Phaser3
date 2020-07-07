@@ -9,8 +9,6 @@ constructor(){
 
 preload ()
   {
-  this.load.atlas('ani2','public/ani2.png','public/ani2.json')
-  this.load.plugin('rexcirclemaskimageplugin', 'https://raw.githubusercontent.com/rexrainbow/phaser3-rex-notes/master/dist/rexcirclemaskimageplugin.min.js', true);
 
 
   }
@@ -223,7 +221,6 @@ this.isRun=t;
     this.ani2.play("attack")
     }
    chooseMusic(){
-
        this.ImgMusic.destroy();
        this.add.image(1000,10,'loa3').setOrigin(0).setDisplaySize(150, 150);
        this.music.pause();

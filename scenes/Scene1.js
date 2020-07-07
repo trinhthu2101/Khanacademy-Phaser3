@@ -12,27 +12,17 @@ var posY_E=530;
 
 var radius = 25;
 var color = 0xffff00;
-      var thickness = 4;
-      var alpha = 1;
+var thickness = 4;
+var alpha = 1;
 class Scene1 extends Phaser.Scene{
-
-
 constructor(){
     super({key:'Scene1'});
     this.isRun=true;
-
+   // this.isMusic=true;
 }
-preload ()
-  {
-  this.load.atlas('ani2','public/ani2.png','public/ani2.json')
-  this.load.plugin('rexcirclemaskimageplugin', 'https://raw.githubusercontent.com/rexrainbow/phaser3-rex-notes/master/dist/rexcirclemaskimageplugin.min.js', true);
-
-  }
-
+preload (){}
 create ()
   {
-  //var cache=this.cache.image;
-  //cache.remove(packScene1);
   this.countNumberWrong=0;
   this.countNumberRight=0;
   this.input.setDefaultCursor('url(public/assets/Game/blue.cur), pointer');
@@ -41,6 +31,7 @@ create ()
   this.QA2=this.add.image(230,97,'QA2');
 
   //Music
+
   this.ImgMusic=this.add.image(1000,10, 'loa33').setOrigin(0).setDisplaySize(150, 150);
   this.music = this.sound.add('music');
   this.ImgMusic.setInteractive({ cursor: 'url(public/assets/Game/star.png), pointer' }).on('pointerdown',this.chooseMusic,this);
@@ -119,11 +110,10 @@ create ()
       }
       if (this.img5.x==550){
        this.setRun(false);
-      this.music.stop();
+       this.music.stop();
 
 
       this.scene.start("Scene2");
-
        }
 
   }
@@ -131,10 +121,9 @@ create ()
 
        this.again=this.add.image(1040,170,'reload').setOrigin(0).setDisplaySize(70, 70);
 
-       this.again.setInteractive().on('pointerdown',() =>{
+       this.again.setInteractive({ cursor: 'url(public/assets/Game/star.png), pointer' }).on('pointerdown',() =>{
+       this.music.stop();
 
-    // this.events.off();﻿ // disable all active events
-        this.music.stop();
     //window.location.href = 'Game.html'
     //let Scene_Start = this.scene.get('Sence_Start');
          this.scene.start();// restart current scene
@@ -260,11 +249,31 @@ create ()
     });
     this.ani2.play("attack")
     }
+   // setMusic(x){
+   //        this.isMusic=x
+   // }
    chooseMusic(){
+
+           /* if(this.isMusic==true)
+             {
+            // this.ImgMusic=this.add.image(1000,10, 'loa33').setOrigin(0).setDisplaySize(150, 150);
+             this.ImgMusic.destroy();
+             this.ImgMusicSt= this.add.image(1000,10,'loa3').setOrigin(0).setDisplaySize(150, 150);
+             this.setMusic(false);
+             this.music.pause();
+
+             }
+             else{
+               this.ImgMusicSt.destroy();
+              this.ImgMusic=this.add.image(1000,10, 'loa33').setOrigin(0).setDisplaySize(150, 150);
+
+              this.setMusic(true);
+              this.music.resume();}
+*/
        this.ImgMusic.destroy();
        this.add.image(1000,10,'loa3').setOrigin(0).setDisplaySize(150, 150);
        this.music.pause();
-   }
+}
 }
 
 
